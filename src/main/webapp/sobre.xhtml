@@ -1,0 +1,34 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Sobre</ui:define>
+	
+	<ui:define name="corpo">
+		
+		<p> <b>  <center> Sistema controle de despesas </center> </b> </p>
+		
+		<h2>Principais funcionalidades</h2>
+		<ul>
+			<li> Cadastro de Cartões</li>
+			<li> Lançamento de despesas</li>
+			<li> Consulta de despesas por mes</li>
+		</ul>
+		
+		obs.:
+		<p>   Caso a despesa seja parcelada o sistema vai levar em consideração, 
+		o melhor dia do cartão para gerar as parcelas automaticamente.</p>
+		
+		<p> Ex.: Se a data da despesa for inferior a data da despesa,
+		ela será lançada no mesmo mês e fara se necessario os 
+		outros lançamentos automaticamete. </p>
+		
+		<p> Ex.: Se a data da despesa for superior ou igual ao melhor do dia do cartão
+		a despesa será lançada somente no mês seguinte e fara se necessario os 
+		outros lançamentos automaticamete. </p>
+		
+	</ui:define>
+</ui:composition>

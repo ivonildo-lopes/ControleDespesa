@@ -1,0 +1,64 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<f:metadata>
+		<o:viewParam name="cartao" value="#{cadastroCartaoBean.cartao}" />
+		<f:event listener="#{cadastroCartaoBean.inicializar()}"
+			type="preRenderView" />
+	</f:metadata>
+
+	<ui:define name="titulo">Cartao</ui:define>
+
+	<ui:define name="corpo">
+
+		<h1>Nova Despesa</h1>
+
+		<h:form>
+			<p:messages autoUpdate="true" closable="true" />
+
+			<p:toolbar style="margin-top: 20px">
+				<p:toolbarGroup>
+					<p:button value="Novo" outcome="/cartao/cadastro" />
+					<p:commandButton value="Salvar" id="botaoSalvar"
+						action="#{cadastroCartaoBean.salvar()}" update="@form" />
+				</p:toolbarGroup>
+				<p:toolbarGroup align="right">
+					<p:button value="Pesquisa" outcome="/cartao/pesquisa" />
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<div class="ui-fluid">
+				<p:panelGrid columns="2"
+					columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid"
+					styleClass="ui-panelgrid-blank">
+
+
+					<p:outputLabel value="Cartao" for="cartao" />
+					<p:inputText id="cartao"
+						value="#{cadastroCartaoBean.cartao.nomeCartao}" />
+
+					<p:outputLabel value="Bandeira" for="bandeira" />
+					<p:inputText id="bandeira"
+						value="#{cadastroCartaoBean.cartao.bandeiraCartao}" />
+
+					<p:outputLabel value="Melhor Dia" for="melhorDia" />
+					<p:inputText id="melhorDia" required="true"
+						value="#{cadastroCartaoBean.cartao.melhorDiaCartao}" />
+
+					<p:outputLabel value="Dia do Vencimento" for="vencimento" />
+					<p:inputText id="vencimento" required="true"
+						value="#{cadastroCartaoBean.cartao.diaVencimento}" />
+
+				</p:panelGrid>
+			</div>
+
+		</h:form>
+
+
+
+	</ui:define>
+</ui:composition>
