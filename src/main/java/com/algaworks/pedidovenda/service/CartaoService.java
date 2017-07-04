@@ -34,7 +34,10 @@ public class CartaoService implements Serializable {
 		return cartaoDAO.listarTodos();
 	}
 
-
+	public Cartao porId(Integer id){
+		return this.cartaoDAO.porId(id);
+	}
+	
 	
 	
 	
